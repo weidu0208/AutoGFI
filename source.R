@@ -1,15 +1,11 @@
-# List of required packages
-required_packages <- c("netcoh", "pracma")
-
 # Install missing packages
-install_if_missing <- function(packages) {
-  for (pkg in packages) {
-    if (!requireNamespace(pkg, quietly = TRUE)) {
-      install.packages(pkg)
-    }
-  }
+if (!requireNamespace("netcoh", quietly = TRUE)) {
+  install.packages("RcppArmadillo")
+  install.packages("./netcoh.tar.gz", repos = NULL, type = "source")
 }
-install_if_missing(required_packages)
+if (!requireNamespace("pracma", quietly = TRUE)) {
+  install.packages("pracma")
+}
 
 # Import required packages
 library(netcoh)

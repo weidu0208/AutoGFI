@@ -9,7 +9,7 @@ p = 10  # number of features of beta
 b1 = 0.2 
 b2 = 0.01
 
-replicates = 100 # number of replicate experiments
+replicates = 2 # number of replicate experiments
 sample_size = 1000 # number of fiducial samples to generate for each replicate experiment
 
 # generate simulated data
@@ -97,7 +97,15 @@ df = data.frame( beta_rmse_de = mean(beta_de_rmse), beta_rmse_be = mean(beta_rms
                  beta_cov_be_95 = mean(CI95beta_be==0), beta_width_be_95 = mean(WD95beta_be),
                  beta_cov_de_99 = mean(CI99beta_de==0), beta_width_de_99 = mean(WD99beta_de),
                  beta_cov_be_99 = mean(CI99beta_be==0), beta_width_be_99 = mean(WD99beta_be))
+print(df)
+
+# save results
+if (!dir.exists("./results/")){
+  dir.create("./results")
+}
+if (!dir.exists("./results/result_nr")){
+  dir.create("./resultsresult_nr")
+}
 write.csv(df, "./results/result_nr/GFI_df.csv")
 
-print(df)
 
