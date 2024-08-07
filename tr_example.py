@@ -18,13 +18,14 @@ X = np.random.RandomState(256).normal(size=p1*p2*n).reshape((n, p1, p2))
 Y = np.einsum('nij,ij->n', X, B) + np.random.RandomState(781).normal(size=n, scale=sd_true)
 
 # basic parameters used in simulations for tensor regression         
-r = 10             
+r = 10
+# sample_size smaller than 30 may raise error
 sample_size = 1000  
 rcond = 0.05
 sd = False 
 
 # choose penalty parameter
-print('Finding penalty parameter ...')
+print('Finding penalty parameter. This may take some time ...')
 ftr = TensorRegression_CV(X, Y, r, n_lamb = 20, k_fold = 10, tol = 1e-3, debias = True, rcond = 0.05)
 lamb = ftr.lamb_sel
 

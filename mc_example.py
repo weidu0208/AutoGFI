@@ -27,10 +27,11 @@ Y = (M + np.reshape(noise, (m,n)))*Omega
 p = False
 sigma = False
 rcond = 0.05
+# sample_size smaller than 30 may raise error
 sample_size = 1000
 
 # choose penalty parameter
-print('Finding penalty parameter ...')
+print('Finding penalty parameter. This may take some time ...')
 mc_cv = MatrixCompletion_CV(Y, Omega, r, p, n_lamb = 10, k_fold = 10, rcond = rcond, tol = 1e-3)
 lamb = mc_cv.lamb_sel
 

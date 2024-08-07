@@ -251,7 +251,7 @@ class Anal_Samples():
                     df_summary = pd.concat((df_summary, df))
         
         if not os.path.exists(folder):
-            os.makedirs(folder)
+            os.makedirs(folder, exist_ok=True)
             
         df_summary.T.to_csv(folder + '/' + 'GFI_df.csv', index=True)
 

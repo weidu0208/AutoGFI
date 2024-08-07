@@ -100,11 +100,8 @@ df = data.frame( beta_rmse_de = mean(beta_de_rmse), beta_rmse_be = mean(beta_rms
 print(df)
 
 # save results
-if (!dir.exists("./results/")){
-  dir.create("./results")
-}
 if (!dir.exists("./results/result_nr")){
-  dir.create("./resultsresult_nr")
+  dir.create("./results/result_nr", recursive = TRUE)
 }
 write.csv(df, "./results/result_nr/GFI_df.csv")
 
