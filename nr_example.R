@@ -9,7 +9,7 @@ p = 10  # number of features of beta
 b1 = 0.2 
 b2 = 0.01
 
-replicates = 2 # number of replicate experiments
+replicates = 100 # number of replicate experiments
 sample_size = 1000 # number of fiducial samples to generate for each replicate experiment
 
 # generate simulated data
